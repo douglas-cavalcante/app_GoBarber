@@ -23,5 +23,10 @@ module.exports = (sequelize, DataTypes) => {
     }
   )
 
+  User.prototype.checkPassword = function (password) {
+    // this é a intância do usuário
+    return bcrypt.compare(password, this.password_hash)
+  }
+
   return User
 }
