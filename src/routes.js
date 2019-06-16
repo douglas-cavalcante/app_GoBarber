@@ -11,6 +11,7 @@ const SessionController = require('./app/controllers/SessionController')
 const DashboardController = require('./app/controllers/DashboardController')
 const FileController = require('./app/controllers/FileController')
 const AppointmentsController = require('./app/controllers/AppointmentsController')
+const AvailableController = require('./app/controllers/AvailableController')
 
 routes.use((req, res, next) => {
   res.locals.flashSuccess = req.flash('success')
@@ -24,11 +25,13 @@ routes.get('/signup', guestMiddleware, UserController.create)
 routes.post('/signup', upload.single('avatar'), UserController.store)
 
 routes.get('/app/appointments/new/:provider', AppointmentsController.create)
+routes.post('/app/appointments/new/:provider', AppointmentsController.store)
 // aplicação global do middleware
 routes.use('/app', authMiddleware)
 
 routes.get('/files/:file', FileController.show)
 routes.get('/app/logout', SessionController.destroy)
 routes.get('/app/dashboard', DashboardController.index)
+routes.get('/app/available/:provider', AvailableController.index)
 
 module.exports = routes
