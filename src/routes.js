@@ -14,11 +14,15 @@ const AppointmentsController = require('./app/controllers/AppointmentsController
 const AvailableController = require('./app/controllers/AvailableController')
 const ScheduleController = require('./app/controllers/ScheduleController')
 
+// Notificações de erro
 routes.use((req, res, next) => {
   res.locals.flashSuccess = req.flash('success')
   res.locals.flashError = req.flash('error')
   next()
 })
+
+// aplicação global do middleware
+routes.use('/app', authMiddleware)
 
 routes.get('/', guestMiddleware, SessionController.create)
 routes.post('/signin', SessionController.store)
@@ -27,13 +31,11 @@ routes.post('/signup', upload.single('avatar'), UserController.store)
 
 routes.get('/app/appointments/new/:provider', AppointmentsController.create)
 routes.post('/app/appointments/new/:provider', AppointmentsController.store)
-// aplicação global do middleware
-routes.use('/app', authMiddleware)
 
+routes.get('/app/dashboard', DashboardController.index)
+routes.get('/app/available/:provider', AvailableController.index)
 routes.get('/files/:file', FileController.show)
 routes.get('/app/logout', SessionController.destroy)
-routes.get('/app/dashboard', DashboardController.index)
-routes.get('/app/schedule', ScheduleController.index)
-routes.get('/app/available/:provider', AvailableController.index)
 
+routes.get('/app/schedule', ScheduleController.index)
 module.exports = routes
