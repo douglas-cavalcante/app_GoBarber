@@ -23,7 +23,6 @@ class AvailableController {
       }
     })
 
-    console.log(appointments)
     const schedule = [
       '8:00',
       '9:00',

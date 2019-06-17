@@ -189,6 +189,44 @@ ul.providers {
   flex-direction: column;
 }
 
+/* desafio */
+
+ul.appointments {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.appointment {
+  display: flex;
+  justify-content: space-around;
+  align-items: 'center';
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.appointment div {
+  display: flex;
+  align-items: center;
+}
+
+.appointment img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+.appointment div .user-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: 'center';
+  margin-left: 20px;
+}
+
+/* end */
+
 .provider {
   padding: 20px;
   border: 1px solid #ddd;

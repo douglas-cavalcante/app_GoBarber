@@ -12,13 +12,18 @@ class SessionController {
       req.flash('error', 'Usuário não encontrado')
       return res.redirect('/')
     }
+
     if (!(await user.checkPassword(password))) {
       req.flash('error', 'Senha incorreta')
       return res.redirect('/')
     }
 
     req.session.user = user
-    return res.redirect('/app/dashboard')
+    if (!user.provider) {
+      return res.redirect('/app/dashboard')
+    } else {
+      return res.redirect('/app/schedule')
+    }
   }
 
   destroy (req, res) {
