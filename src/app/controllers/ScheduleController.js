@@ -7,17 +7,7 @@ class ScheduleController {
     const appointments = await Appointment.findAll({
       include: [{ model: User, as: 'user' }],
       where: {
-        provider_id: req.session.user.id,
-        date: {
-          [Op.between]: [
-            moment()
-              .startOf('day')
-              .format(),
-            moment()
-              .endOf('day')
-              .format()
-          ]
-        }
+        provider_id: req.session.user.id
       }
     })
     return res.render('schedule', { appointments })
