@@ -10,7 +10,7 @@ Projeto do segundo módulo de node do bootcamp 6.0 da Rocketseat
   <li>
     Em src/config/database.js, está o arquivo de configuração do banco de dados. Instale uma versão mais recente
     do postgres ou utilize o docker para gerar uma versão do postgres. Por padrão, o nome do banco de dados desse projeto
-    está como gonodemodulo2<b>. Para configurar o acesso a base de dados, basta modificar o arquivo database.js de acordo com
+    está como <b>gonodemodulo2</b>. Para configurar o acesso a base de dados, basta modificar o arquivo database.js de acordo com
     as suas especificações.
    </li>
   <li>Execute <b>yarn start</b> para subir o servidor</li>
