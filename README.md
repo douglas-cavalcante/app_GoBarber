@@ -16,3 +16,4 @@ Projeto do segundo módulo de node do bootcamp 6.0 da Rocketseat
   <li>Execute <b>yarn start</b> para subir o servidor</li>
   <li>Acesse a aplicação por meio de http://localhost:3333/ </li>
 </ul>
+<p>Você pode conferir detalhes do projeto nesse post : https://www.linkedin.com/feed/update/urn:li:activity:6546754027957346304 </p>
